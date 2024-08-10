@@ -29,7 +29,7 @@ export interface TopRated {
 }
 
 interface TopRatedRes{
-  result: TopRated[];
+  results: TopRated[];
 }
 ///////////////////////////////////////////////////////////
 const baseConfig: AxiosRequestConfig = {

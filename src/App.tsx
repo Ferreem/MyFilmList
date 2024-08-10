@@ -1,8 +1,9 @@
 
 import './App.css'
-import Card from './components/Card'
+import Card from './components/Card/Card'
 import { useState, useEffect } from 'react';
-import { fetchMovieGenres, Genre, fetchMovieTopRated, TopRated } from './utils/api'; // Adjust the import path based on your project structure
+import { fetchMovieGenres, Genre, fetchMovieTopRated, TopRated } from './utils/api';
+import Navbar from './components/Navbar/Navbar';
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
     const getTopRated = async () => {
       try {
         const data = await fetchMovieTopRated();
-        setTopRated(data.TopRateds);
+        setTopRated(data.results);
       } catch (error){
         console.error(error);
       }
@@ -36,6 +37,7 @@ function App() {
   
   return (
     <>
+      <Navbar />
       <h1 className='text-xl'>Movie Genres</h1>
       <ul>
         {genres.map(genre => (
